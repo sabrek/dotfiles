@@ -3,7 +3,7 @@
 
 # ENV Vars
 export EDITOR='mvim -p'
-
+export PYTHONPATH='/Users/Sabr/python/'
 
 # History
 # =======
@@ -45,6 +45,8 @@ alias -r cls='clear'
 alias -r g='git'
 alias -r e=$EDITOR
 alias -r h='history|less'
+alias -r p='python'
+alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
 
 # Options
 # =======
@@ -91,7 +93,7 @@ PS1='%n [%1~]%# '
 # Magic
 # =====
 
-# Nice trick from zshwiki.org.
+
 # # If "cd /path/to/file", then cd will simply go to "/path/to"
 # (eliminating the file name).
 cd () {

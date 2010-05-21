@@ -1,0 +1,14 @@
+#
+# Sabr's Git exclude patterns
+#
+# 2010-05-09
+
+# Mac OS X
+.DS_Store
+
+# Vim
+*.swp
+
+# Python
+*.pyc
+
