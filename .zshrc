@@ -2,8 +2,9 @@
 # Jacek Karolak (j.karolak@sabr.pl)
 
 # ENV Vars
-export EDITOR='mvim -p'
-export PYTHONPATH='/Users/Sabr/python/'
+export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
+export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2'
+export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
 
 # History
 # =======
@@ -43,10 +44,11 @@ alias -r l/='ls -F|grep "\>/"' #list with grep
 alias -r m='mkdir -p'
 alias -r cls='clear'
 alias -r g='git'
-alias -r e=$EDITOR
+alias -r e='mvim -p'
 alias -r h='history|less'
 alias -r p='python'
 alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
+alias -r t='touch'
 
 # Options
 # =======
