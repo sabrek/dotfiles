@@ -6,6 +6,12 @@ export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
 export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2'
 export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
 
+# VirtualEnvWrapper
+# =======
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+
 # History
 # =======
 
