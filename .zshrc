@@ -59,6 +59,9 @@ alias -r hi='history|less'
 alias -r p='python'
 alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
 alias -r t='touch'
+alias -r pi='pip install'
+alias -r b='brew'
+alias -r bu='b update'
 
 # Options
 # =======
