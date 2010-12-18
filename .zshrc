@@ -35,6 +35,10 @@ alias -r cd...='cd ..'
 alias -r ~='cd ~'
 alias -r c='cd '
 
+alias -r s='cd ~/sandbox/'
+alias -r h='cd ~'
+alias -r d='cd ~/Downloads/'
+
 ##
 # ls
 ##
@@ -51,7 +55,7 @@ alias -r m='mkdir -p'
 alias -r cls='clear'
 alias -r g='git'
 alias -r e='mvim -p'
-alias -r h='history|less'
+alias -r hi='history|less'
 alias -r p='python'
 alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
 alias -r t='touch'
