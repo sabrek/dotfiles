@@ -53,15 +53,33 @@ alias -r l/='ls -F|grep "\>/"' #list with grep
 ##
 alias -r m='mkdir -p'
 alias -r cls='clear'
-alias -r g='git'
 alias -r e='mvim -p'
 alias -r hi='history|less'
 alias -r p='python'
+alias -r p3='/Users/Sabr/bin/python3'
 alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
 alias -r t='touch'
 alias -r pi='pip install'
 alias -r b='brew'
 alias -r bu='b update'
+# Ask wiki!
+alias -r wiki='p /Users/Sabr/sandbox/wiki_ask_py/wiki_ask.py'
+# Downloads files from hotfile using prepared cookie
+alias -r hf='wget --load-cookies ~/dotfiles/hotfilecookie -c -i'
+# Downloads files from rapidshare using prepared cookie
+alias -r rap='wget --header="Cookie: enc=`cat ~/dotfiles/rapidsharecookie` " -c -i'
+
+##
+# Git related aliases
+##
+alias -r g='git'
+alias -r gs='git status'
+alias -r ga='git add'
+alias -r gc='git commit'
+alias -r gcm='git commit -m'
+alias -r gch='git checkout -b'
+alias -r gb='git branch'
+alias -r gl='git log'
 
 # Options
 # =======
@@ -85,6 +103,11 @@ lg() {
 mc() {
     mkdir -p $*
     cd $*
+}
+
+# Soft deletion
+del() {
+    mv $* ~/.Trash/
 }
 
 # git toys
