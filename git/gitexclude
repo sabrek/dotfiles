@@ -12,3 +12,7 @@
 # Python
 *.pyc
 
+# Misc
+hotfilecookie
+rapidsharecookie
+.zcompdump

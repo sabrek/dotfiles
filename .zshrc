@@ -1,7 +1,22 @@
 # ZShell configuration file
 # Jacek Karolak (j.karolak@sabr.pl)
 
-# ENV Vars
+# ENV Vars and PATHs
+export PATH="/usr/local/bin:\
+/usr/local/Cellar/ruby/1.9.2-p180/bin:\
+/usr/bin:\
+/bin:\
+/usr/sbin:\
+/sbin:\
+/usr/X11/bin:\
+/usr/local/sbin:\
+/Library/PostgreSQL/8.4/bin:\
+/usr/local/texlive/2010/bin/universal-darwin/"
+
+export NODE_PATH="/usr/local/lib/node/"
+
+cdpath=( ~ /Users/ )
+
 export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
 export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2'
 export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
@@ -56,8 +71,11 @@ alias -r cls='clear'
 alias -r e='mvim -p'
 alias -r hi='history|less'
 alias -r p='python'
-alias -r p3='/Users/Sabr/bin/python3'
+# stupid wx want python to play in 32bit mode
+alias -r p32bit='arch -i386 /usr/bin/python'
+alias -r py3='/usr/local/bin/python3.1'
 alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
+alias -r reload='source ~/dotfiles/.zshrc'
 alias -r t='touch'
 alias -r pi='pip install'
 alias -r b='brew'
@@ -90,8 +108,39 @@ setopt always_to_end
 # Spelling correction
 setopt correct
 
+# Completition
+autoload -U compinit
+compinit
+zstyle ':completion:*' menu select
+# tab completion for PID :D
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list alwa
+# tab completion for PID :D
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*' force-list alwa
+
+# Movement
+bindkey "^A" beginning-of-line
+bindkey "^W" forward-word
+bindkey "^B" backward-word
+bindkey "^Z" beginning-of-history
+bindkey "^X" end-of-history
+bindkey "^Q" quoted-insert
+bindkey "[[3~" delete-char
+bindkey "^R" history-search-backward
+bindkey "^T" history-search-forward
+
 # Functions
 # =========
+
+# Download files from Pycon blip.tv
+blip.tv() {
+    if (( $# == 0 )) then 
+        echo usage: blip.tv filename
+    else
+        wget "blip.tv/file/get/$*"
+    fi
+}
 
 # Ls + grep regexp
 lg() {
@@ -125,8 +174,17 @@ preview() {
 
 # Prompt
 # ======
+autoload -U colors && colors
+# set some colors
+for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE; do
+    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'        
+    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
+done                                                
+PR_RESET="%{${reset_color}%}"; 
 
-PS1='%n [%1~]%# '
+PS1="%~ ${PR_BLUE}> ${PR_RESET}"
+
+
 
 # Magic
 # =====
