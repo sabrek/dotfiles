@@ -161,6 +161,16 @@ del() {
     mv $* ~/.Trash/
 }
 
+# Downloads files from hotfile using prepared cookie
+hf() {
+    cmd="wget --load-cookies ~/.dotfiless/hotfilecookie -c"
+    if (( $# == 0 ))
+    then
+        eval ${cmd} $(pbpaste)
+    else
+        eval ${cmd} '-i' $*
+    fi;
+}
 # git toys
 function git(){hub "$@"}
 
