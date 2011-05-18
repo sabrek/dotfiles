@@ -1,7 +1,7 @@
+set nocompatible
+filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-
-set nocompatible
 
 " General settings
 " ================
@@ -12,8 +12,6 @@ set nobackup
 set noswapfile
 set autochdir " vim changes dir to dir in wich current file lives
 
-filetype plugin indent on
-
 " Line numbers
 set number
 
@@ -22,6 +20,7 @@ set hidden
 
 " Syntax highlighting
 filetype on
+filetype plugin indent on
 syntax on
 set background=light
 colorscheme solarized
