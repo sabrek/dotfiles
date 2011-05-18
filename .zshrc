@@ -184,6 +184,26 @@ preview() {
     /Applications/Preview.app/Contents/MacOS/Preview $*&
 }
 
+# download entire site
+wg() {
+    if (( $# == 0 ))
+    then
+        URL=$(pbpaste)
+    else
+        URL=$1
+    fi;
+    wget \
+         --recursive \
+         --no-clobber \
+         --page-requisites \
+         --html-extension \
+         --convert-links \
+         --restrict-file-names=windows \
+         --domains $(python -c "from urlparse import urlparse; url=urlparse('$URL'); print url.netloc") \
+         --no-parent \
+         $URL
+}
+
 # Prompt
 # ======
 autoload -U colors && colors
