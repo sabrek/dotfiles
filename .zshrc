@@ -108,16 +108,18 @@ setopt always_to_end
 # Spelling correction
 setopt correct
 
+# Autocd 
+setopt autocd
+
+
 # Completition
-autoload -U compinit
-compinit
+# ============
+autoload -U compinit && compinit
 zstyle ':completion:*' menu select
 # tab completion for PID :D
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*' force-list alwa
-# tab completion for PID :D
-zstyle ':completion:*:*:kill:*' menu yes select
-zstyle ':completion:*:kill:*' force-list alwa
+zstyle ':completion:*:kill:*:processes' command "ps x"
 
 # Movement
 bindkey "^A" beginning-of-line
