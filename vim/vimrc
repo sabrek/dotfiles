@@ -1,0 +1,140 @@
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+set nocompatible
+
+" General settings
+" ================
+
+set encoding=utf8
+
+set nobackup
+set noswapfile
+set autochdir " vim changes dir to dir in wich current file lives
+
+filetype plugin indent on
+
+" Line numbers
+set number
+
+" use hidden buffers
+set hidden
+
+" Syntax highlighting
+filetype on
+syntax on
+set background=light
+colorscheme solarized
+set cursorline    "Highligt cursor current line
+
+" Whitespace config
+set tabstop=4 " 4spaces as tab"
+set shiftwidth=4
+set list  " Show whitespace
+set listchars=tab:>-,trail:~ "show tabs and trailing only
+
+set smarttab
+set expandtab
+set softtabstop=4
+
+" Indentation
+set autoindent
+set smartindent
+
+"set wildmenu    " autocomplete vim commands
+set hlsearch    " NO Highlight search
+set incsearch   " Incremental search
+
+set nostartofline " leave cursor where it was
+set novisualbell " don't blink
+
+set report=0 " tell when anything is chaged via :....
+set ruler " show current position
+set showmatch
+
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+ "              | | | | |  |   |      |  |     |    |
+ "              | | | | |  |   |      |  |     |    + current 
+ "              | | | | |  |   |      |  |     |       column
+ "              | | | | |  |   |      |  |     +-- current line
+ "              | | | | |  |   |      |  +-- current % into file
+ "              | | | | |  |   |      +-- current syntax in 
+ "              | | | | |  |   |          square brackets
+ "              | | | | |  |   +-- current fileformat
+ "              | | | | |  +-- number of lines
+ "              | | | | +-- preview flag in square brackets
+ "              | | | +-- help flag in square brackets
+ "              | | +-- readonly flag in square brackets
+ "              | +-- rodified flag in square brackets
+ "              +-- full path to file in the buffer
+
+" Gui setings
+if has("gui_running")
+    set go-=T
+    set columns=90
+    set lines=40
+    set background=dark
+    colorscheme solarized
+    set guifont=DejaVu\ Sans\ Mono:h14
+endif
+
+" Get rid of whitespace at the end of the lines
+autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``
+
+" Syntax highlight from start
+autocm BufEnter * :syntax sync fromstart
+
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" enable auto title setting in terminal
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+" set leader to ','
+let mapleader=","
+
+" arrow keys move visible lines (github/mitshukio)
+inoremap <Down> <C-R>=pumvisible() ? "\<lt>Down>" : "\<lt>C-O>gj"<CR>
+inoremap <Up> <C-R>=pumvisible() ? "\<lt>Up>" : "\<lt>C-O>gk"<CR>
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+
+" hides matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+
+" Quickly edit/reaload the vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" don't show some files
+set wildignore=*.swp,*.bak,*.pyc,*.pyo,*.class,*.o
+
+" quicker window switching
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" <leader>v select just pasted text
+nnoremap <leader>v V`]
+
+" quit <leader>q
+nnoremap <leader>q :q<CR>
+
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+" file type stwitching
+nnoremap <leader>Th :set ft=htmljinja<CR>
+nnoremap <leader>Tp :set ft=python<CR>
+nnoremap <leader>Tj :set ft=javascript<CR>
+
+" ; is now :
+nnoremap ; :
+
+" color last column
+set colorcolumn=79
