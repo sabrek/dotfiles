@@ -15,7 +15,7 @@ export PATH="/usr/local/bin:\
 
 export NODE_PATH="/usr/local/lib/node/"
 
-cdpath=( ~ /Users/ )
+cdpath=( . ~ ~/sandbox/ ~/edu/studia/WZIM/SEM6\ -\ 2011/)
 
 export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
 export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2'
@@ -57,11 +57,12 @@ alias -r d='cd ~/Downloads/'
 ##
 # ls
 ##
+setopt extendedglob
 alias -r l='ls'
-alias -r la='ls -al'
-alias -r l.='ls -a|grep "^\.[^\.]"' #list 'dot' files
-alias -r l@='ls -F|grep "\>@"' #list links
-alias -r l/='ls -F|grep "\>/"' #list with grep 
+alias -r la='l -al'
+alias -r l.='l -a|grep "^\.[^\.]"' #list 'dot' files
+alias -r l@='l -dF *(@)' #list links
+alias -r l/='l -F|grep "\>/"' #list with grep 
 
 ##
 # misc
@@ -71,21 +72,20 @@ alias -r cls='clear'
 alias -r e='mvim -p'
 alias -r hi='history|less'
 alias -r p='python'
-# stupid wx want python to play in 32bit mode
+# stupid wx wants python to play in 32bit mode
 alias -r p32bit='arch -i386 /usr/bin/python'
 alias -r py3='/usr/local/bin/python3.1'
-alias -r ec='e -f ~/dotfiles/.zshrc; source ~/dotfiles/.zshrc'
-alias -r reload='source ~/dotfiles/.zshrc'
+alias -r ec='e -f ~/.dotfiles/.zshrc; source ~/.dotfiles/.zshrc'
+alias -r reload='source ~/.dotfiless/.zshrc'
 alias -r t='touch'
 alias -r pi='pip install'
 alias -r b='brew'
-alias -r bu='b update'
+alias -r bu='b update > /dev/null; b outdated'
+alias -r bi='b install'
 # Ask wiki!
 alias -r wiki='p /Users/Sabr/sandbox/wiki_ask_py/wiki_ask.py'
-# Downloads files from hotfile using prepared cookie
-alias -r hf='wget --load-cookies ~/dotfiles/hotfilecookie -c -i'
 # Downloads files from rapidshare using prepared cookie
-alias -r rap='wget --header="Cookie: enc=`cat ~/dotfiles/rapidsharecookie` " -c -i'
+alias -r rap='wget --header="Cookie: enc=`cat ~/.dotfiless/rapidsharecookie` " -c -i'
 
 ##
 # Git related aliases
