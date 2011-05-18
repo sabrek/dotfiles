@@ -1,7 +1,13 @@
+" For Pathogen
+" ============
 set nocompatible
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+" For neocmplcache plugin
+" =======================
+let g:neocomplcache_enable_at_startup = 1
 
 " General settings
 " ================
@@ -25,6 +31,7 @@ syntax on
 set background=light
 colorscheme solarized
 set cursorline    "Highligt cursor current line
+
 
 " Whitespace config
 set tabstop=4 " 4spaces as tab"
