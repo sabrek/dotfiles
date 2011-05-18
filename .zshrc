@@ -214,9 +214,16 @@ for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE; do
 done                                                
 PR_RESET="%{${reset_color}%}"; 
 
-PS1="%~ ${PR_BLUE}> ${PR_RESET}"
+autoload -Uz vcs_info
 
+precmd() {
+    psvar=()
+    vcs_info
+    [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
+}
+setopt prompt_subst
 
+PROMPT="%~ %1v ${PR_BLUE}>${PR_RESET} "
 
 # Magic
 # =====
