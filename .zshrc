@@ -215,15 +215,21 @@ done
 PR_RESET="%{${reset_color}%}"; 
 
 autoload -Uz vcs_info
+zstyle ':vcs_info:*' stagedstr "${PR_GREEN}+${PR_RESET}"
+zstyle ':vcs_info:*' unstagedstr "${PR_RED}!${PR_RESET}"
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats "${PR_CYAN}±${PR_RESET} %c%b%u"
+zstyle ':vcs_info:*' actionformats "${PR_CYAN}±${PR_RESET} ${PR_RED}%a${PR_RESET}%b%u"
 
 precmd() {
-    psvar=()
     vcs_info
-    [[ -n $vcs_info_msg_0_ ]] && psvar[1]="$vcs_info_msg_0_"
+    if [[ -n $vcs_info_msg_0_ ]] then;
+        PROMPT="%2c ${vcs_info_msg_0_} ${PR_BLUE}>${PR_RESET} "
+    else
+        PROMPT="%2c ${PR_BLUE}>${PR_RESET} "
+    fi;
 }
-setopt prompt_subst
 
-PROMPT="%~ %1v ${PR_BLUE}>${PR_RESET} "
 
 # Magic
 # =====
