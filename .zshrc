@@ -155,15 +155,28 @@ blip.tv() {
     fi
 }
 # open file or youtube, vimeo, blip, etc. in VLC
+# stolen from https://github.com/narfdotpl/dotfiles/blob/c8b1caad35d54a1d04ae3bea0e0e562952372019/home/.zshrc#L352-375
 vlc() {
     if [[ "$@" = "" ]]; then
         open -a vlc
-    elif [[ -f "$(pwd)/$1" ]]; then
+    elif [[ -f $1 ]]; then
         open -a vlc $1
     else
+        # start download in background
         youtube-dl --no-part --title --continue --quiet $1 &
+
+        # show title
         youtube-dl --get-title $1
-        open -a vlc $(youtube-dl --no-part --title --get-filename $1)
+
+        # open file as soon as it appears
+        local filename="$(youtube-dl --no-part --title --get-filename $1)"
+        while [[ ! -f $filename ]]; do
+            sleep 1
+        done
+        open -a vlc $filename
+
+        # bring download to foreground
+        fg %youtube-dl
     fi
 }
 
