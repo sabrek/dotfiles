@@ -219,24 +219,9 @@ for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE; do
     eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'        
     eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
 done                                                
-PR_RESET="%{${reset_color}%}"; 
+PR_RESET="%{${reset_color}%}";
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' stagedstr "${PR_GREEN}+${PR_RESET}"
-zstyle ':vcs_info:*' unstagedstr "${PR_RED}!${PR_RESET}"
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' formats "${PR_CYAN}±${PR_RESET} %c%b%u"
-zstyle ':vcs_info:*' actionformats "${PR_CYAN}±${PR_RESET} ${PR_RED}%a${PR_RESET}%b%u"
-
-precmd() {
-    vcs_info
-    if [[ -n $vcs_info_msg_0_ ]] then;
-        PROMPT="%2c ${vcs_info_msg_0_} ${PR_BLUE}>${PR_RESET} "
-    else
-        PROMPT="%2c ${PR_BLUE}>${PR_RESET} "
-    fi;
-}
-
+PS1="%2c ${PR_BLUE}>${PR_RESET} "
 
 # Magic
 # =====
