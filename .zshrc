@@ -91,7 +91,7 @@ alias -r bu='b update > /dev/null; b outdated'
 alias -r bi='b install'
 buw() {
     # Updateds all outdated packages
-    b outdated | awk '{print "brew upgrade ", $0}' | zsh
+    brew outdated | xargs brew update
 }
 # Ask wiki!
 alias -r wiki='p /Users/Sabr/sandbox/wiki_ask_py/wiki_ask.py'
