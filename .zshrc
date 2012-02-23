@@ -154,6 +154,18 @@ blip.tv() {
         wget "blip.tv/file/get/$*"
     fi
 }
+# open file or youtube, vimeo, blip, etc. in VLC
+vlc() {
+    if [[ "$@" = "" ]]; then
+        open -a vlc
+    elif [[ -f "$(pwd)/$1" ]]; then
+        open -a vlc $1
+    else
+        youtube-dl --no-part --title --continue --quiet $1 &
+        youtube-dl --get-title $1
+        open -a vlc $(youtube-dl --no-part --title --get-filename $1)
+    fi
+}
 
 # Ls + grep regexp
 lg() {
