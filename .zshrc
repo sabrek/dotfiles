@@ -2,7 +2,8 @@
 # Jacek Karolak (j.karolak@sabr.pl)
 
 # ENV Vars and PATHs
-export PATH="/usr/local/bin:\
+export PATH="/usr/local/share/python:\
+/usr/local/bin:\
 /usr/local/Cellar/ruby/1.9.2-p180/bin:\
 /usr/bin:\
 /bin:\
@@ -11,20 +12,23 @@ export PATH="/usr/local/bin:\
 /usr/X11/bin:\
 /usr/local/sbin:\
 /Library/PostgreSQL/8.4/bin:\
-/usr/local/texlive/2010/bin/universal-darwin/"
+/usr/local/texlive/2010/bin/universal-darwin/:\
+/Users/Sabr/.dotfiles/bin"
 
-export NODE_PATH="/usr/local/lib/node/"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
 cdpath=( . ~ ~/sandbox/ ~/edu/studia/WZIM/SEM6\ -\ 2011/)
 
 export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
-export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2'
+export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2:/Users/Sabr/sandbox/watchdog/'
 export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
 
 # VirtualEnvWrapper
 # =======
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_LOG_DIR="$WORKON_HOME"
+export VIRTUALENVWRAPPER_HOOK_DIR="$WORKON_HOME"
+source /usr/local/Cellar/python/2.7.1/bin/virtualenvwrapper.sh
 
 
 # History
