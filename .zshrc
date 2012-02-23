@@ -89,6 +89,10 @@ alias -r pi='pip install'
 alias -r b='brew'
 alias -r bu='b update > /dev/null; b outdated'
 alias -r bi='b install'
+buw() {
+    # Updateds all outdated packages
+    b outdated | awk '{print "brew upgrade ", $0}' | zsh
+}
 # Ask wiki!
 alias -r wiki='p /Users/Sabr/sandbox/wiki_ask_py/wiki_ask.py'
 # Downloads files from rapidshare using prepared cookie
