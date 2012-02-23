@@ -74,13 +74,16 @@ alias -r l/='l -F|grep "\>/"' #list with grep
 alias -r m='mkdir -p'
 alias -r cls='clear'
 alias -r e='mvim -p'
+alias -r ep='mvim -p *.py'
 alias -r hi='history|less'
 alias -r p='python'
+alias -r p26='python2.6'
 # stupid wx wants python to play in 32bit mode
 alias -r p32bit='arch -i386 /usr/bin/python'
-alias -r py3='/usr/local/bin/python3.1'
+alias -r p3='/usr/local/bin/python3.2'
 alias -r ec='e -f ~/.dotfiles/.zshrc; source ~/.dotfiles/.zshrc'
-alias -r reload='source ~/.dotfiless/.zshrc'
+alias -r eg='e -f ~/.gitconfig'
+alias -r reload='source ~/.dotfiles/.zshrc'
 alias -r t='touch'
 alias -r pi='pip install'
 alias -r b='brew'
@@ -101,7 +104,7 @@ alias -r gc='git commit'
 alias -r gcm='git commit -m'
 alias -r gch='git checkout -b'
 alias -r gb='git branch'
-alias -r gl='git log'
+alias -r gl='git log --color --oneline'
 
 # Options
 # =======
