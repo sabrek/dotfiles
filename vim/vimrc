@@ -138,5 +138,10 @@ nnoremap <leader>Tj :set ft=javascript<CR>
 " ; is now :
 nnoremap ; :
 
+" FuzzyFinder settings
+" ===================
+nmap <C-f> :FufFile<CR>
+
 " color last column
 set colorcolumn=79
+
