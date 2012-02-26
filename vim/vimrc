@@ -5,10 +5,6 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-" For neocmplcache plugin
-" =======================
-let g:neocomplcache_enable_at_startup = 1
-
 " General settings
 " ================
 
