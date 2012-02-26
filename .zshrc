@@ -13,7 +13,8 @@ export PATH="/usr/local/share/python:\
 /usr/local/sbin:\
 /Library/PostgreSQL/8.4/bin:\
 /usr/local/texlive/2010/bin/universal-darwin/:\
-/Users/Sabr/.dotfiles/bin"
+/Users/Sabr/.dotfiles/bin:\
+/Users/Sabr/.node_modules/.bin"
 
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
