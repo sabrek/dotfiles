@@ -4,7 +4,6 @@
 # ENV Vars and PATHs
 export PATH="/usr/local/share/python:\
 /usr/local/bin:\
-/usr/local/Cellar/ruby/1.9.2-p180/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
@@ -12,8 +11,9 @@ export PATH="/usr/local/share/python:\
 /usr/X11/bin:\
 /usr/local/sbin:\
 /Library/PostgreSQL/8.4/bin:\
-/usr/local/texlive/2010/bin/universal-darwin/:\
+/usr/local/texlive/2010/bin/universal-darwin:\
 /Users/Sabr/.dotfiles/bin:\
+/usr/local/Cellar/ruby/1.9.3-p0/bin:\
 /Users/Sabr/.node_modules/.bin"
 
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
