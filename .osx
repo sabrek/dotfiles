@@ -58,3 +58,7 @@ echo "0x08000100:0" > ~/.CFUserTextEncoding
 # Reset Dock, Finder, and Launchpad
 rm ~/Library/Application\ Support/Dock/*.db
 for app in Dock Finder; do killall "$app"; done
+
+# Make ⌘F focus the search input in iTunes
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
