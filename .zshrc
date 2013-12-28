@@ -2,26 +2,19 @@
 # Jacek Karolak (j.karolak@sabr.pl)
 
 # ENV Vars and PATHs
-export PATH="/usr/local/share/python:\
-/usr/local/bin:\
+export PATH="/usr/local/bin:\
 /usr/bin:\
 /bin:\
 /usr/sbin:\
 /sbin:\
 /usr/X11/bin:\
 /usr/local/sbin:\
-/Library/PostgreSQL/8.4/bin:\
-/usr/local/texlive/2010/bin/universal-darwin:\
-/Users/Sabr/.dotfiles/bin:\
-/usr/local/Cellar/ruby/1.9.3-p0/bin:\
-/Users/Sabr/.node_modules/.bin"
+"
 
-export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
-cdpath=( . ~ ~/sandbox/ ~/edu/studia/WZIM/SEM6\ -\ 2011/)
+cdpath=( . ~ ~/sandbox/ )
 
 export EDITOR='mvim -p -f -c "au VimLeave * opendiff -a Terminal"'
-export PYTHONPATH='/Users/Sabr/python/:/Users/Sabr/play/django/pdp:/Users/Sabr/play/django/pdp2:/Users/Sabr/sandbox/watchdog/'
 export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
 
 # VirtualEnvWrapper
@@ -29,7 +22,6 @@ export PYTHONSTARTUP=$ZDOTDIR'/.pythonrc.py'
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_LOG_DIR="$WORKON_HOME"
 export VIRTUALENVWRAPPER_HOOK_DIR="$WORKON_HOME"
-source /usr/local/Cellar/python/2.7.1/bin/virtualenvwrapper.sh
 
 
 # History
@@ -200,12 +192,7 @@ del() {
 }
 
 # git toys
-function git(){hub "$@"}
-
-# unrar thing
-unrar() {
-    /Applications/UnRarX.app/Contents/MacOS/UnRarX $*&
-}
+#function git(){hub "$@"}
 
 # preview
 preview() {
