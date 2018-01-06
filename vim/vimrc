@@ -1,3 +1,4 @@
+set runtimepath+=~/.dotfiles/vim
 " For Pathogen
 " ============
 set nocompatible

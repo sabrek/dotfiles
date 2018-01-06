@@ -9,7 +9,11 @@ export PATH="/usr/local/bin:\
 /sbin:\
 /usr/X11/bin:\
 /usr/local/sbin:\
+/usr/local/opt/ruby/bin:\
+/usr/local/texlive/2013/bin/x86_64-darwin:\
 "
+
+export ZDOTDIR="/Users/sabr/.dotfiles"
 
 
 cdpath=( . ~ ~/sandbox/ )
@@ -85,7 +89,7 @@ alias -r bu='b update > /dev/null; b outdated'
 alias -r bi='b install'
 buw() {
     # Updateds all outdated packages
-    brew outdated | xargs brew update
+    brew outdated | xargs brew upgrade
 }
 # Ask wiki!
 alias -r wiki='p /Users/Sabr/sandbox/wiki_ask_py/wiki_ask.py'
@@ -173,6 +177,9 @@ vlc() {
         fg %youtube-dl
     fi
 }
+
+#download youtube movie
+alias -r ydl='youtube-dl `pbpaste`'
 
 # Ls + grep regexp
 lg() {
